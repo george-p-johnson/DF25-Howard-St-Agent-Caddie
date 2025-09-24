@@ -1,0 +1,50 @@
+/* @import './base.css'; */
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  /* width: 100%;
+  height: 100%; */
+  height: 1080px;
+  width: 1920px;
+  overflow: hidden; /* stop scrolling */
+}
+
+
+/* #app {
+  height: 1080px;
+  width: 1920px;
+} */
+
+/* Transition classes */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+/*=========================================================
+
+AvantGardeForSalesforce-Demi
+
+=========================================================*/
+@font-face {
+    font-family: 'AvantGardeForSalesforce-Demi';
+    src: url('/fonts/AvantGardeForSalesforce-Demi.otf');
+    src: url('/fonts/AvantGardeForSalesforceW05-Dm.woff') format('woff'),
+         url('/fonts/AvantGardeForSalesforce-Demi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
