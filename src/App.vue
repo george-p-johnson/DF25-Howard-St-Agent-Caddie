@@ -9,13 +9,13 @@
       <source src="/videos/attract-bg.mp4" type="video/mp4" />
     </video>
 
-    <video
+    <!-- <video
       autoplay muted loop playsinline
       class="bg-video main"
       :class="{ visible: currentPath !== '/' }"
     >
       <source src="/videos/main-bg.mp4" type="video/mp4" />
-    </video>
+    </video> -->
 
     <!-- Routed content -->
     <router-view v-slot="{ Component }">
@@ -140,14 +140,6 @@ onBeforeUnmount(() => {
 
 
 <style>
-/* html, body, #app {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; 
-} */
-
 .app-container {
   position: relative;
   width: 100%;
@@ -163,7 +155,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;            /* below content */
+  z-index: 0;            
   opacity: 0;
   transition: opacity 1s ease;
   pointer-events: none;   /* so they don’t block clicks */
@@ -214,6 +206,8 @@ Timeout Modal
     text-align: center;
     width: 500px;
     height: 500px;
+    font-family:'MD Nichrome Test Black';
+
 }
 
 #eyes-gif {
@@ -223,14 +217,13 @@ Timeout Modal
 #modal-header {
     font-size: 50px;
     margin-top: 0;
-    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
-
+    font-family:'MD Nichrome Test Black';
 }
 
 #countdown {
     font-size: 150px;
     margin: 0;
-    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+    font-family:'MD Nichrome Test Black';
 }
 
 .buttons {
@@ -244,15 +237,14 @@ Timeout Modal
     font-size: 25px;
     cursor: pointer;
     border-radius: 50px;
-    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
     border: none;
 }
 
 #restart {
-    background-color: #2196F3;
+    background-color: #CBFC7E;
 }
 
 #continue {
-    background-color: #4CAF50;
+    background-color: #CBFC7E;
 }
 </style>

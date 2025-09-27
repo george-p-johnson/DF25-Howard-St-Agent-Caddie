@@ -2,10 +2,12 @@
     <div class="page-content">
         <Transition name="fade">
             <div v-if="true" class="fade-group">
-                <h2>This is a header</h2>
-                <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </h4>
-                <button @click="selection">Watch more!</button>
-                <button @click="finish">Finish</button>
+                <img id="headline" src="/img/CTA-headline.png" alt="headline">
+
+                <div id="button-container">
+                     <button @click="finish">End Experience</button>
+                <button @click="selection">Go back to video page</button>
+                </div>
             </div>
         </Transition>
     </div>
@@ -31,42 +33,46 @@ function finish() {
 
 <style scoped>
 .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  color: white;
-  z-index: 0;
+    position: relative;        /* allow children to be positioned absolutely/fixed */
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    z-index: 0;
+    background-image: url('/img/Selection-bg.png');
+    background-size: cover;
+    background-position: center;
 }
 
-h2 {
-    font-size: 100px;
+#headline {
+    top: 220px;
+    position: relative;
 }
 
-h4 {
-    font-size: 50px;
-    padding: 50px 200px;
+#button-container {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 260px;
+    display: flex;
+    z-index: 10;
 }
 
 button {
-    margin-top: 2rem;
-    padding: 15px 100px;
-    font-size: 40px;
+    /* padding: 20px 75px; */
     cursor: pointer;
-    border-radius: 70px;
     border: none;
-}
-
-/* Transition classes */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #CBFC7E;
+    color: #000;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 0 30px;
+    width: 344px;
+    height: 75px;
 }
 </style>

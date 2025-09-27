@@ -17,6 +17,7 @@ html, body, #app {
   height: 1080px;
   width: 1920px;
   overflow: hidden; /* stop scrolling */
+  background-color: #292929;
 }
 
 
@@ -24,6 +25,11 @@ html, body, #app {
   height: 1080px;
   width: 1920px;
 } */
+
+button {
+    background-color: #CBFC7E;
+    font-family:'MD Nichrome Test Black';
+}
 
 /* Transition classes */
 .fade-enter-active,
@@ -35,16 +41,33 @@ html, body, #app {
 .fade-leave-to {
   opacity: 0;
 }
+
 /*=========================================================
 
-AvantGardeForSalesforce-Demi
+MD Nichrome
 
 =========================================================*/
 @font-face {
-    font-family: 'AvantGardeForSalesforce-Demi';
-    src: url('/fonts/AvantGardeForSalesforce-Demi.otf');
-    src: url('/fonts/AvantGardeForSalesforceW05-Dm.woff') format('woff'),
-         url('/fonts/AvantGardeForSalesforce-Demi.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'MD Nichrome Test Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('MD Nichrome Test Black'),
+       url('/fonts/MDNichromeTest-Black.woff') format('woff'),
+       url('/fonts/MDNichromeTest-Black.otf') format('opentype');
 }
+
+/*=========================================================
+
+Sequel Sans
+
+=========================================================*/
+@font-face {
+  font-family: 'Sequel Sans Book Body';
+  font-style: normal;
+  font-weight: normal;
+  src:  url('/fonts/SequelSansBookBody.woff') format('woff'),
+        url('/fonts/SequelSansBookBody.woff2') format('woff2'),
+        url('/fonts/SequelSansBookBody.ttf') format('truetype');
+}
+
+

@@ -3,8 +3,7 @@
     <!-- Text fade -->
     <Transition name="fade">
       <div v-if="true" class="fade-group">
-        <h1>Attract video</h1>
-        <button @click="goNext">Start</button>
+        <button @click="goNext">Press to get started</button>
       </div>
     </Transition>
   </div>
@@ -41,30 +40,24 @@ function goNext() {
   text-align: center;
 }
 
-h1 {
-    font-size: 100px;
-    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
-
-}
 
 button {
-    margin-top: 2rem;
-    padding: 15px 100px;
-    font-size: 40px;
+    padding: 20px 75px;
     cursor: pointer;
-    border-radius: 70px;
     border: none;
-}
-
-
-/* Transition classes */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #CBFC7E;
+    color: #000;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: fixed;   
+    left: 50%;         
+    transform: translateX(-50%); 
+    bottom: 175px;    
+    z-index: 10;      
 }
 </style>

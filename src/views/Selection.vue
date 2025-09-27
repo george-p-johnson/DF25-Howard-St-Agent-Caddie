@@ -2,10 +2,11 @@
     <div class="page-content">
         <Transition name="fade">
             <div v-if="true" class="fade-group">
-                <h2>This is a header</h2>
-                <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </h4>
-                <button @click="caddie">Experience Agent Caddie</button>
-                <button @click="other">Experience Fan Caddie</button>
+                <img src="/img/Selection-headline.png">
+                <div id="button-container">
+                    <button @click="caddie">Experience Agent Caddie</button>
+                    <button @click="other">Experience Fan Caddie</button>
+                </div>
             </div>
         </Transition>
     </div>
@@ -31,42 +32,45 @@ function other() {
 
 <style scoped>
 .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  color: white;
-  z-index: 0;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: white;
+    z-index: 0;
+    background-image: url('/img/Selection-bg.png');
 }
 
-h2 {
-    font-size: 100px;
+img { 
+    position: relative;
+    top: 333px;
 }
 
-h4 {
-    font-size: 50px;
-    padding: 50px 200px;
+#button-container {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 175px;
+    display: flex;
+    z-index: 10;
 }
 
 button {
-    margin-top: 2rem;
-    padding: 15px 100px;
-    font-size: 40px;
+    padding: 20px 75px;
     cursor: pointer;
-    border-radius: 70px;
     border: none;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #CBFC7E;
+    color: #000;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 0 30px;
 }
 
-/* Transition classes */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

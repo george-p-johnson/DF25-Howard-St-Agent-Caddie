@@ -1,21 +1,38 @@
 <template>
     <div class="page-content">
-        <Transition name="fade">
-            <div v-if="true" class="fade-group">
-                <button id="back-button" @click="goBack">⬅ Back</button>
+        <transition name="fade">
+        <div v-if="true" class="fade-group">
+            <button id="back-button" @click="goBack">Back</button>
 
+            <img id="headline" src="/img/Selection-headline.png" alt="headline">
 
-                <h2>This is a header</h2>
-                <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </h4>
-                <button @click="video1">Video1</button>
-                <button @click="video2">Video2</button>
-
-                <button @click="video3">Video3</button>
-                <button @click="video4">Video4</button>
+            <!-- Video thumbnails + buttons -->
+            <div id="thumbnails-container">
+            <div class="video-item">
+                <img src="/img/Thumbnail.png" alt="Video 1">
+                <button @click="video1">Play Video 1</button>
             </div>
-        </Transition>
+
+            <div class="video-item">
+                <img src="/img/Thumbnail.png" alt="Video 2">
+                <button @click="video2">Play Video 2</button>
+            </div>
+
+            <div class="video-item">
+                <img src="/img/Thumbnail.png" alt="Video 3">
+                <button @click="video3">PLay Video 3</button>
+            </div>
+
+            <div class="video-item">
+                <img src="/img/Thumbnail.png" alt="Video 4">
+                <button @click="video4">Play Video 4</button>
+            </div>
+            </div>
+        </div>
+        </transition>
     </div>
 </template>
+
 
 <script setup>
 import { useRouter } from 'vue-router'
@@ -50,47 +67,74 @@ function goBack() {
 
 <style scoped>
 .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  color: white;
-  z-index: 0;
+    position: relative;        /* allow children to be positioned absolutely/fixed */
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    z-index: 0;
+    background-image: url('/img/Selection-bg.png');
+    background-size: cover;
+    background-position: center;
 }
 
-h2 {
-    font-size: 100px;
-}
 
-h4 {
-    font-size: 50px;
-    padding: 50px 200px;
-}
-
+/* Back button */
 #back-button {
-    background: none;
-    display: block;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 24px;
+    color: #ffffff;
+    border-radius: 110px;
+    line-height: 1;  
+    border: 2.7px solid #34BECD;
+    background: #292929;
+    padding: 10px 25px;
+    font-family: 'Sequel Sans Book Body', 'Arial', sans-serif;
 }
 
-button {
-    margin-top: 2rem;
-    padding: 15px 100px;
-    font-size: 40px;
-    cursor: pointer;
-    border-radius: 70px;
+
+#headline {
+    top: 220px;
+    position: relative;
+}
+
+/* Container for all thumbnails */
+#thumbnails-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* space between each video-item */
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 300px;
+    z-index: 10;
+}
+
+/* Each thumbnail + button pair */
+.video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Thumbnail image */
+.video-item img {
+    /* width: 100%;  */
+    height: auto;
+    margin-bottom: 40px;
+}
+
+/* Video buttons */
+.video-item button {
+    padding: 15px 40px;
+    font-size: 24px;
+    border-radius: 50px;
     border: none;
+    cursor: pointer;
+    width: 344px;
+    height: 75px;
 }
 
-/* Transition classes */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>
