@@ -91,7 +91,8 @@ function goBack() {
     border: 2.7px solid #34BECD;
     background: #292929;
     padding: 10px 25px;
-    font-family: 'Sequel Sans Book Body', 'Arial', sans-serif;
+    /* font-family: 'Sequel Sans Book Body', 'Arial', sans-serif; */
+    font-family: 'Sequel Sans Medium';
 }
 
 

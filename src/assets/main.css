@@ -71,3 +71,13 @@ Sequel Sans
 }
 
 
+@font-face {
+  font-family: 'Sequel Sans Medium';
+  font-style: normal;
+  font-weight: normal;
+  src:  url('/fonts/OGJ Type Design - Sequel Sans Display Medium.woff') format('woff'),
+        url('/fonts/OGJ Type Design - Sequel Sans Display Medium.woff2') format('woff2'),
+        url('/fonts/OGJ Type Design - Sequel Sans Display Medium.ttf') format('truetype');
+}
+
+

@@ -29,15 +29,15 @@ function goNext() {
 
 <style scoped>
 .page-content {
-  position: relative;   /* keeps it above video */
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  color: white;
-  text-align: center;
+    position: relative;   /* keeps it above video */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
 }
 
 

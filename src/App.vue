@@ -17,6 +17,7 @@
       <source src="/videos/main-bg.mp4" type="video/mp4" />
     </video> -->
 
+
     <!-- Routed content -->
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
@@ -149,16 +150,16 @@ onBeforeUnmount(() => {
 
 /* Videos stay pinned behind everything */
 .bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;            
-  opacity: 0;
-  transition: opacity 1s ease;
-  pointer-events: none;   /* so they don’t block clicks */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;            
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;   /* so they don’t block clicks */
 }
 
 .bg-video.visible {

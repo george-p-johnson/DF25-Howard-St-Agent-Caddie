@@ -2,8 +2,6 @@
     <div class="page-content">
         <Transition name="fade">
             <div v-if="true" class="fade-group">
-                <h2>Caddie video</h2>
-
                 <video
                     ref="videoEl"
                     autoplay
@@ -11,7 +9,7 @@
                     playsinline
                     @ended="handleEnded"
                     >
-                    <source src="/videos/mobileVideo1.mp4" type="video/mp4" />
+                    <source src="/videos/2025_09_25_SFC_Liv Golf x Salesforce_16x9_JSE_v02.mp4" type="video/mp4" />
                 </video>
             </div>
         </Transition>
@@ -76,17 +74,13 @@ video {
   text-align: center;
 }
 
-h2 {
-  font-size: 100px;
-}
-
 .bg-video {
   max-width: 100%;
   height: auto;
 }
 
 /* Transition classes */
-.fade-enter-active,
+/* .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease-in-out;
 }
@@ -94,5 +88,5 @@ h2 {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-}
+} */
 </style>
