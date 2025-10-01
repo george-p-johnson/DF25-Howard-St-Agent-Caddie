@@ -28,7 +28,6 @@ html, body, #app {
 
 button {
     background-color: #CBFC7E;
-    /* font-family:'MD Nichrome Test Black'; */
     font-family: 'MD Nichrome Black';
 
 }
@@ -64,6 +63,7 @@ MD Nichrome
   font-weight: normal;
   src: local('MD Nichrome Black'),
        url('/fonts/MDNichrome-Black.woff') format('woff'),
+       url('/fonts/MDNichrome-Black.woff2') format('woff2'),
        url('/fonts/MDNichrome-Black.otf') format('opentype');
 }
 
@@ -72,14 +72,14 @@ MD Nichrome
 Sequel Sans
 
 =========================================================*/
-@font-face {
+/* @font-face {
     font-family: 'Sequel Sans Book Body';
     font-style: normal;
     font-weight: normal;
     src:  url('/fonts/SequelSansBookBody.woff') format('woff'),
             url('/fonts/SequelSansBookBody.woff2') format('woff2'),
             url('/fonts/SequelSansBookBody.ttf') format('truetype');
-}
+} */
 
 
 @font-face {
