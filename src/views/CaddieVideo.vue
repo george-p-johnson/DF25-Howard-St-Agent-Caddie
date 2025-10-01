@@ -1,38 +1,88 @@
 <template>
-    <div class="page-content">
-        <Transition name="fade">
-            <div v-if="true" class="fade-group">
-                <video
-                    ref="videoEl"
-                    autoplay
-                    muted
-                    playsinline
-                    @ended="handleEnded"
-                    >
-                    <source src="/videos/2025_09_25_SFC_Liv Golf x Salesforce_16x9_JSE_v02.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </Transition>
+  <div class="page-content">
+
+    <button id="back-button" @click="goBack">Back</button>
+    <h1 class="gradient-text">Agent caddie</h1>
+
+    <Transition name="fade">
+      <div v-if="true" class="fade-group video-wrapper">
+        <video
+          ref="videoEl"
+          autoplay
+          muted
+          playsinline
+          @ended="handleEnded"
+          @timeupdate="updateTime"
+          @loadedmetadata="updateDuration"
+        >
+          <source src="/videos/2025_09_25_SFC_Liv Golf x Salesforce_16x9_JSE_v02.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </Transition>
+
+    <!-- Time display -->
+    <div class="time-display">
+      {{ formattedTime }} / {{ formattedDuration }}
     </div>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { logClick, endSession } from '@/utils/logger.js'  // ✅ add endSession here
-
+import { logClick, endSession } from '@/utils/logger.js'
 
 const router = useRouter()
 const videoEl = ref(null)
 
-const handleEnded = () => {
-    // endSession()
-    logClick('Caddie video watched', 'selection')
-    router.push('/selection') 
+const currentTime = ref(0)
+const duration = ref(0)
+
+function goBack() {
+  router.back()
 }
 
+function handleEnded() {
+  logClick('Caddie video watched', 'selection')
+  router.push('/selection')
+}
+
+function updateTime() {
+  if (videoEl.value) {
+    currentTime.value = videoEl.value.currentTime
+  }
+}
+
+function updateDuration() {
+  if (videoEl.value) {
+    duration.value = videoEl.value.duration
+  }
+}
+
+// helper for formatting mm:ss
+// function formatTime(seconds) {
+//   const minutes = Math.floor(seconds / 60)
+//   const secs = Math.floor(seconds % 60)
+//   return `${minutes}:${secs.toString().padStart(2, '0')}`
+// }
+
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60)
+  const secs = Math.floor(seconds % 60)
+
+  if (minutes > 0) {
+    return `${minutes}:${secs.toString().padStart(2, '0')}`
+  } else {
+    return `${secs}`
+  }
+}
+
+
+const formattedTime = computed(() => formatTime(currentTime.value))
+const formattedDuration = computed(() => formatTime(duration.value))
+
 onMounted(() => {
-  // Ensure autoplay works — some browsers need this kick
   if (videoEl.value) {
     videoEl.value.play().catch(err => {
       console.warn('Autoplay blocked:', err)
@@ -42,51 +92,66 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  color: white;
-  z-index: 0;
-} */
-video {
-  position: fixed;        
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;      /* cover screen without distortion */
-  z-index: -1;            /* push behind any text if you keep it */
-}
-
 .page-content {
-  position: relative;
-  z-index: 1;             /* keep text above video */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;          /* match viewport height */
-  color: white;
-  text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;          
+    color: white;
+    text-align: center;
 }
 
-.bg-video {
-  max-width: 100%;
-  height: auto;
+.video-wrapper {
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    height: 100vh;            
+    width: 100vw;            
 }
 
-/* Transition classes */
-/* .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
+.video-wrapper video {
+    max-width: 80%;   
+    max-height: 80%;  
+    border-radius: 25px;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-} */
+.gradient-text {
+    position: absolute;
+    left: 196px;
+    top: 38px;
+    font-family: 'MD Nichrome Black';
+    background: linear-gradient(90deg, #BDFF69, #0BCCDB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 50px;
+}
+
+#back-button {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 24px;
+    color: #ffffff;
+    border-radius: 110px;
+    line-height: 1;  
+    border: 2.7px solid #34BECD;
+    background: #292929;
+    padding: 10px 25px;
+    font-family: 'Sequel Sans Medium';
+    z-index: 2;
+}
+
+.time-display {
+    font-size: 50px;
+    position: absolute;
+    top: 40px;
+    left: 492px;
+    font-family: 'MD Nichrome Black';
+    color: #0BCCDB;
+
+}
 </style>

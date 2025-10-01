@@ -208,7 +208,6 @@ Timeout Modal
     width: 500px;
     height: 500px;
     font-family:'MD Nichrome Test Black';
-
 }
 
 #eyes-gif {
@@ -218,19 +217,20 @@ Timeout Modal
 #modal-header {
     font-size: 50px;
     margin-top: 0;
-    font-family:'MD Nichrome Test Black';
+    font-family: 'Sequel Sans Medium';
+
 }
 
 #countdown {
-    font-size: 150px;
-    margin: 0;
-    font-family:'MD Nichrome Test Black';
+    font-size: 120px;
+    margin-top: 25px;
+    font-family: 'Sequel Sans Medium';
 }
 
 .buttons {
   display: flex;
   justify-content: space-around;
-  margin-top: 35px;
+  margin-top: 50px;
 }
 
 .buttons button {

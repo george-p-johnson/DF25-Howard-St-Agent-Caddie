@@ -2,10 +2,28 @@
     <div class="page-content">
         <Transition name="fade">
             <div v-if="true" class="fade-group">
-                <img src="/img/Selection-headline.png">
-                <div id="button-container">
+                <img id="header" src="/img/selection-headline.png">
+                <h2>Explore how LIV Golf brings fans inside the ropes<br>with live updates, insights, and more.</h2>
+
+
+                <!-- <div id="button-container">
                     <button @click="caddie">Experience Agent Caddie</button>
                     <button @click="other">Experience Fan Caddie</button>
+                </div> -->
+
+                <div id="button-container">
+                    <img 
+                        src="/img/agent-caddie-button.png" 
+                        alt="Experience Agent Caddie"
+                        @click="caddie"
+                        class="img-button"
+                    >
+                    <img 
+                        src="/img/fan-caddie-button.png" 
+                        alt="Experience Fan Caddie"
+                        @click="other"
+                        class="img-button"
+                    >
                 </div>
             </div>
         </Transition>
@@ -27,7 +45,6 @@ function other() {
     logClick('Other Button', 'Selection')
     router.push('/selectionOther')
 }
-
 </script>
 
 <style scoped>
@@ -43,9 +60,15 @@ function other() {
     background-image: url('/img/Selection-bg.png');
 }
 
-img { 
+#header { 
     position: relative;
     top: 333px;
+}
+
+h2 {
+    font-family: 'Sequel Sans Medium';
+    top: 380px;
+    position: relative;
 }
 
 #button-container {
@@ -53,11 +76,28 @@ img {
     left: 50%;
     transform: translateX(-50%);
     bottom: 175px;
-    display: flex;
     z-index: 10;
+    display: flex;
+    justify-content: center; /* center horizontally */
+    gap: 2rem; /* space between buttons */
 }
 
-button {
+/* Back button */
+/* #back-button {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 24px;
+    color: #ffffff;
+    border-radius: 110px;
+    line-height: 1;  
+    border: 2.7px solid #34BECD;
+    background: #292929;
+    padding: 10px 25px;
+    font-family: 'Sequel Sans Medium';
+} */
+
+/* button {
     padding: 20px 75px;
     cursor: pointer;
     border: none;
@@ -71,6 +111,6 @@ button {
     font-weight: 800;
     line-height: normal;
     margin: 0 30px;
-}
+} */
 
 </style>

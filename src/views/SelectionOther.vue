@@ -4,28 +4,28 @@
         <div v-if="true" class="fade-group">
             <button id="back-button" @click="goBack">Back</button>
 
-            <img id="headline" src="/img/Selection-headline.png" alt="headline">
+            <img id="headline" src="/img/selection-other-header.png" alt="headline">
 
             <!-- Video thumbnails + buttons -->
             <div id="thumbnails-container">
             <div class="video-item">
                 <img src="/img/Thumbnail.png" alt="Video 1">
-                <button @click="video1">Play Video 1</button>
+                <button @click="video1">Player & Team <br>Moments</button>
             </div>
 
             <div class="video-item">
                 <img src="/img/Thumbnail.png" alt="Video 2">
-                <button @click="video2">Play Video 2</button>
+                <button @click="video2">Catch Every Highlight</button>
             </div>
 
             <div class="video-item">
                 <img src="/img/Thumbnail.png" alt="Video 3">
-                <button @click="video3">PLay Video 3</button>
+                <button @click="video3">GET THE GEAR</button>
             </div>
 
             <div class="video-item">
                 <img src="/img/Thumbnail.png" alt="Video 4">
-                <button @click="video4">Play Video 4</button>
+                <button @click="video4">TOURNAMENT DAY ACCESS</button>
             </div>
             </div>
         </div>
@@ -67,7 +67,7 @@ function goBack() {
 
 <style scoped>
 .page-content {
-    position: relative;        /* allow children to be positioned absolutely/fixed */
+    position: relative;        
     height: 100%;
     width: 100%;
     text-align: center;
