@@ -2,28 +2,28 @@
     <div class="page-content">
         <Transition name="fade">
             <div v-if="true" class="fade-group">
-                <img id="header" src="/img/selection-headline.png">
+                
+                <img id="header" :src="headerImg">
                 <h2>Explore how LIV Golf brings fans inside the ropes<br>with live updates, insights, and more.</h2>
-
-
-                <!-- <div id="button-container">
-                    <button @click="caddie">Experience Agent Caddie</button>
-                    <button @click="other">Experience Fan Caddie</button>
-                </div> -->
 
                 <div id="button-container">
                     <img 
-                        src="/img/agent-caddie-button.png" 
+                        :src="caddieBtn" 
                         alt="Experience Agent Caddie"
                         @click="caddie"
                         class="img-button"
                     >
                     <img 
-                        src="/img/fan-caddie-button.png" 
+                        :src="otherBtn" 
                         alt="Experience Fan Caddie"
                         @click="other"
                         class="img-button"
                     >
+
+                    <!-- <div id="button-container"> 
+                        <button @click="caddie">Experience Agent Caddie</button> 
+                        <button @click="other">Experience Fan Caddie</button> 
+                    </div> -->
                 </div>
             </div>
         </Transition>
@@ -36,6 +36,11 @@ import { logClick } from '@/utils/logger.js'
 
 const router = useRouter()
 
+// Use reactive constants to reference public folder images
+const headerImg = '/img/selection-headline.png'
+const caddieBtn  = '/img/agent-caddie-button.png'
+const otherBtn   = '/img/fan-caddie-button.png'
+
 function caddie() {
   logClick('Caddie Button', 'Selection')
   router.push('/caddieVideo')
@@ -47,9 +52,9 @@ function other() {
 }
 </script>
 
+
 <style scoped>
 .page-content {
-    /* display: flex; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -57,7 +62,7 @@ function other() {
     text-align: center;
     color: white;
     z-index: 0;
-    background-image: url('/img/Selection-bg.png');
+    /* background-image: url('/img/Selection-bg.png'); */
 }
 
 #header { 
@@ -78,8 +83,8 @@ h2 {
     bottom: 175px;
     z-index: 10;
     display: flex;
-    justify-content: center; /* center horizontally */
-    gap: 2rem; /* space between buttons */
+    justify-content: center;
+    gap: 2rem;
 }
 
 /* Back button */

@@ -1,6 +1,4 @@
 /* @import './base.css'; */
-
-
 *,
 *::before,
 *::after {
@@ -16,7 +14,7 @@ html, body, #app {
     width: 1920px;
     overflow: hidden; 
     background-color: #292929;
-    background-image: url('/img/Selection-bg.png');
+    background-image: url('/img/selection-bg.png');
 
 }
 
