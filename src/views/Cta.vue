@@ -2,11 +2,11 @@
     <div class="page-content">
         <Transition name="fade">
             <div v-if="true" class="fade-group">
-                <img id="headline" src="/img/CTA-headline.png" alt="headline">
+                <img id="headline" src="/img/cta-headline.png" alt="headline">
 
                 <div id="button-container">
-                     <button @click="finish">End Experience</button>
-                <button @click="selection">Go back to video page</button>
+                    <button @click="finish">End Experience</button>
+                    <button @click="selection">Go back to video page</button>
                 </div>
             </div>
         </Transition>
@@ -33,7 +33,7 @@ function finish() {
 
 <style scoped>
 .page-content {
-    position: relative;        /* allow children to be positioned absolutely/fixed */
+    position: relative;        
     height: 100%;
     width: 100%;
     text-align: center;
@@ -59,7 +59,6 @@ function finish() {
 }
 
 button {
-    /* padding: 20px 75px; */
     cursor: pointer;
     border: none;
     flex-shrink: 0;

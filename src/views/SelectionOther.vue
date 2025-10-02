@@ -79,7 +79,6 @@ function goBack() {
 }
 
 
-/* Back button */
 #back-button {
     position: absolute;
     top: 40px;
@@ -91,7 +90,6 @@ function goBack() {
     border: 2.7px solid #34BECD;
     background: #292929;
     padding: 10px 25px;
-    /* font-family: 'Sequel Sans Book Body', 'Arial', sans-serif; */
     font-family: 'Sequel Sans Medium';
 }
 
@@ -101,11 +99,10 @@ function goBack() {
     position: relative;
 }
 
-/* Container for all thumbnails */
 #thumbnails-container {
     display: flex;
     justify-content: center;
-    gap: 40px; /* space between each video-item */
+    gap: 40px; 
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -113,21 +110,17 @@ function goBack() {
     z-index: 10;
 }
 
-/* Each thumbnail + button pair */
 .video-item {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Thumbnail image */
 .video-item img {
-    /* width: 100%;  */
     height: auto;
     margin-bottom: 40px;
 }
 
-/* Video buttons */
 .video-item button {
     padding: 15px 40px;
     font-size: 24px;

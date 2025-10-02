@@ -1,31 +1,31 @@
 <template>
-  <div class="page-content">
+    <div class="page-content">
+        <button id="back-button" @click="goBack">Back</button>
+        <h1 class="gradient-text">Agent caddie</h1>
 
-    <button id="back-button" @click="goBack">Back</button>
-    <h1 class="gradient-text">Agent caddie</h1>
+        <Transition name="fade">
+            <div v-if="true" class="fade-group video-wrapper">
+                <video
+                ref="videoEl"
+                autoplay
+                muted
+                playsinline
+                @ended="handleEnded"
+                @timeupdate="updateTime"
+                @loadedmetadata="updateDuration"
+                >
+                <source src="/videos/2025_09_25_SFC_Liv Golf x Salesforce_16x9_JSE_v02.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </Transition>
 
-    <Transition name="fade">
-      <div v-if="true" class="fade-group video-wrapper">
-        <video
-          ref="videoEl"
-          autoplay
-          muted
-          playsinline
-          @ended="handleEnded"
-          @timeupdate="updateTime"
-          @loadedmetadata="updateDuration"
-        >
-          <source src="/videos/2025_09_25_SFC_Liv Golf x Salesforce_16x9_JSE_v02.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </Transition>
-
-    <!-- Time display -->
-    <div class="time-display">
-      {{ formattedTime }} / {{ formattedDuration }}
+        <!-- Time display -->
+        <div class="time-display">
+            {{ formattedTime }} / {{ formattedDuration }}
+        </div>
     </div>
-  </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
@@ -38,15 +38,20 @@ const videoEl = ref(null)
 const currentTime = ref(0)
 const duration = ref(0)
 
+
+// Navigation
+function handleEnded() {
+    logClick('Caddie video watched', 'selection')
+    router.push('/selection')
+}
+
 function goBack() {
   router.back()
 }
 
-function handleEnded() {
-  logClick('Caddie video watched', 'selection')
-  router.push('/selection')
-}
 
+
+// Video time function
 function updateTime() {
   if (videoEl.value) {
     currentTime.value = videoEl.value.currentTime
@@ -59,23 +64,15 @@ function updateDuration() {
   }
 }
 
-// helper for formatting mm:ss
-// function formatTime(seconds) {
-//   const minutes = Math.floor(seconds / 60)
-//   const secs = Math.floor(seconds % 60)
-//   return `${minutes}:${secs.toString().padStart(2, '0')}`
-// }
-
-
 function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60)
-  const secs = Math.floor(seconds % 60)
+    const minutes = Math.floor(seconds / 60)
+    const secs = Math.floor(seconds % 60)
 
-  if (minutes > 0) {
-    return `${minutes}:${secs.toString().padStart(2, '0')}`
-  } else {
-    return `${secs}`
-  }
+    if (minutes > 0) {
+        return `${minutes}:${secs.toString().padStart(2, '0')}`
+    } else {
+        return `${secs}`
+    }
 }
 
 
@@ -152,6 +149,5 @@ onMounted(() => {
     left: 492px;
     font-family: 'MD Nichrome Black';
     color: #0BCCDB;
-
 }
 </style>

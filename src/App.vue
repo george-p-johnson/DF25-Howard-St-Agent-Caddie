@@ -20,24 +20,24 @@
 
     <!-- Routed content -->
     <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </transition>
+        <transition name="fade" mode="out-in">
+            <component :is="Component" />
+        </transition>
     </router-view>
 
     <!-- Timeout Modal -->
-    <div v-if="showModal" class="modal-backdrop">
-      <div class="modal">
-        <img id="eyes-gif" src="/img/eyes.gif"></img>
-        <h2 id="modal-header">Are you still there?</h2>
-        <p id="countdown">{{ countdown }}</p>
-        <div class="buttons">
-          <button id="restart" @click="restart">Restart</button>
-          <button id="continue" @click="continueSession">Continue</button>
+        <div v-if="showModal" class="modal-backdrop">
+            <div class="modal">
+                <img id="eyes-gif" src="/img/eyes.gif"></img>
+                <h2 id="modal-header">Are you still there?</h2>
+                <p id="countdown">{{ countdown }}</p>
+                <div class="buttons">
+                    <button id="restart" @click="restart">Restart</button>
+                    <button id="continue" @click="continueSession">Continue</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -135,11 +135,6 @@ onBeforeUnmount(() => {
 </script>
 
 
-
-
-
-
-
 <style>
 .app-container {
   position: relative;
@@ -159,7 +154,7 @@ onBeforeUnmount(() => {
     z-index: 0;            
     opacity: 0;
     transition: opacity 1s ease;
-    pointer-events: none;   /* so they don’t block clicks */
+    pointer-events: none;   
 }
 
 .bg-video.visible {
@@ -169,33 +164,29 @@ onBeforeUnmount(() => {
 /* Routed page content fills screen */
 .router-view,
 .page-content {
-  position: relative;
-  /* width: 100%;
-  height: 100%; */
-  height: 1080px;
-  width: 1920px;
-  /* display: flex;
-  flex-direction: column; */
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  color: white;
+    position: relative;
+    height: 1080px;
+    width: 1920px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: white;
 }
 
 /* ============================== 
 Timeout Modal 
 ============================== */
 .modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
 .modal {
