@@ -2,7 +2,7 @@
 <template>
     <div class="page-content">
         <button id="back-button" @click="goBack">Back</button>
-        <h1 class="gradient-text">Agent caddie</h1>
+        <h1 class="gradient-text">CATCH EVERY HIGHLIGHT</h1>
 
         <Transition name="fade">
             <div v-if="true" class="fade-group video-wrapper">
@@ -15,14 +15,14 @@
                 @timeupdate="updateTime"
                 @loadedmetadata="updateDuration"
                 >
-                <source src="/videos/mobileVideo1.mp4" type="video/mp4" />
+                <source src="/videos/2025_09_25_SFC_Liv Golf x Salesforce_16x9_JSE_v02.mp4" type="video/mp4" />
                 </video>
             </div>
         </Transition>
 
-        <!-- Time display -->
+        <!-- Countdown display -->
         <div class="time-display">
-            {{ formattedTime }} / {{ formattedDuration }}
+            :{{ formattedCountdown }} 
         </div>
     </div>
 </template>
@@ -50,33 +50,43 @@ function goBack() {
 }
 
 
-// Video time function
+
+// Video time updates
 function updateTime() {
-  if (videoEl.value) {
+  if (videoEl.value && Number.isFinite(videoEl.value.currentTime)) {
     currentTime.value = videoEl.value.currentTime
   }
 }
 
 function updateDuration() {
-  if (videoEl.value) {
+  if (videoEl.value && Number.isFinite(videoEl.value.duration)) {
     duration.value = videoEl.value.duration
   }
 }
 
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60)
-    const secs = Math.floor(seconds % 60)
-
-    if (minutes > 0) {
-        return `${minutes}:${secs.toString().padStart(2, '0')}`
-    } else {
-        return `${secs}`
-    }
+function formatCountdown(secondsInput) {
+  const s = Math.max(0, Math.ceil(Number(secondsInput) || 0))
+  const minutes = Math.floor(s / 60)
+  const secs = s % 60
+  if (minutes > 0) {
+    return `${minutes}:${secs.toString().padStart(2, '0')}` // e.g. 1:05
+  } else {
+    return `${secs}` 
+  }
 }
 
+// computed values
+const countdownTime = computed(() => {
+  const d = Number(duration.value) || 0
+  const ct = Math.max(0, d - (Number(currentTime.value) || 0))
+  return ct
+})
+
+const formattedCountdown = computed(() => formatCountdown(countdownTime.value))
 
 const formattedTime = computed(() => formatTime(currentTime.value))
 const formattedDuration = computed(() => formatTime(duration.value))
+
 
 onMounted(() => {
   if (videoEl.value) {
@@ -146,8 +156,8 @@ onMounted(() => {
 .time-display {
     font-size: 50px;
     position: absolute;
-    top: 40px;
-    left: 492px;
+    top: 37px;
+    left: 666px;
     font-family: 'MD Nichrome Black';
     color: #0BCCDB;
 }

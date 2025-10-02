@@ -1,7 +1,7 @@
 <template>
     <div class="page-content">
         <button id="back-button" @click="goBack">Back</button>
-        <h1 class="gradient-text">Agent caddie</h1>
+        <h1 class="gradient-text">AGENT CADDIE</h1>
 
         <Transition name="fade">
         <div v-if="true" class="fade-group video-wrapper">
@@ -21,7 +21,7 @@
 
         <!-- Countdown display -->
         <div class="time-display">
-        {{ formattedCountdown }} 
+            :{{ formattedCountdown }} 
         </div>
     </div>
 </template>
@@ -60,40 +60,28 @@ function updateDuration() {
   }
 }
 
-
-function formatFullMMSS(secondsInput) {
-  const s = Math.max(0, Math.floor(Number(secondsInput) || 0))
-  const minutes = Math.floor(s / 60)
-  const secs = s % 60
-  return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
-}
-
 function formatCountdown(secondsInput) {
   const s = Math.max(0, Math.ceil(Number(secondsInput) || 0))
   const minutes = Math.floor(s / 60)
   const secs = s % 60
   if (minutes > 0) {
-    return `${minutes}:${secs.toString().padStart(2, '0')}` // e.g. 1:05
+    return `${minutes}:${secs.toString().padStart(2, '0')}` 
   } else {
-    return `${secs}` // e.g. 5
+    return `${secs}` 
   }
 }
 
 // computed values
 const countdownTime = computed(() => {
-  // ensure duration is a number; if not yet loaded, return 0
   const d = Number(duration.value) || 0
   const ct = Math.max(0, d - (Number(currentTime.value) || 0))
   return ct
 })
 
 const formattedCountdown = computed(() => formatCountdown(countdownTime.value))
-// const formattedDuration = computed(() => formatFullMMSS(duration.value))
 
 onMounted(() => {
-  // try to play; also in case metadata already loaded, populate duration
   if (videoEl.value) {
-    // if metadata already available
     if (Number.isFinite(videoEl.value.duration) && videoEl.value.duration > 0) {
       duration.value = videoEl.value.duration
     }
@@ -226,7 +214,7 @@ onMounted(() => {
 .time-display {
     font-size: 50px;
     position: absolute;
-    top: 40px;
+    top: 37px;
     left: 492px;
     font-family: 'MD Nichrome Black';
     color: #0BCCDB;
