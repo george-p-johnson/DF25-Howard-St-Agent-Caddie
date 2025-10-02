@@ -19,11 +19,6 @@
                         @click="other"
                         class="img-button"
                     >
-
-                    <!-- <div id="button-container"> 
-                        <button @click="caddie">Experience Agent Caddie</button> 
-                        <button @click="other">Experience Fan Caddie</button> 
-                    </div> -->
                 </div>
             </div>
         </Transition>

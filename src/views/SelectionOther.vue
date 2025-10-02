@@ -10,12 +10,12 @@
             <div id="thumbnails-container">
             <div class="video-item">
                 <img src="/img/Thumbnail.png" alt="Video 1">
-                <button @click="video1">Player & Team <br>Moments</button>
+                <button @click="video1">PLAYER & TEAM <br>MOMENTS</button>
             </div>
 
             <div class="video-item">
                 <img src="/img/Thumbnail.png" alt="Video 2">
-                <button @click="video2">Catch Every Highlight</button>
+                <button @click="video2">CATCH EVERY HIGHLIGHT</button>
             </div>
 
             <div class="video-item">

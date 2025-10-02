@@ -148,6 +148,5 @@ onMounted(() => {
     left: 492px;
     font-family: 'MD Nichrome Black';
     color: #0BCCDB;
-
 }
 </style>
